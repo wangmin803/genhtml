@@ -23,15 +23,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import freemarker.template.TemplateException;
 
@@ -42,14 +41,24 @@ class MyRadio {
 	private Container container = jFrame.getContentPane();// 得到窗体容器
 	
 	
-	private JTextArea jta = new JTextArea("结果显示");
+
 
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
 	private JButton developer = new JButton("生成文件");
 	
+	private static JTextField jtextField2 = new JTextField("自定义2");
+	private static JTextField jtextField4 = new JTextField("自定义4");
+	private static JTextField jtextField5 = new JTextField("结果");
+	
+	private static JTextField jtextField6 = new JTextField("D:\\aaa");
+	
+	
+	
  
 	public MyRadio() {
+		
+		
 		panel.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
 		panel.setLayout(new GridLayout(2, 6));// 定义排版，一行三列
 	
@@ -58,10 +67,25 @@ class MyRadio {
 		
 		panel1.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
 		panel1.setLayout(new GridLayout(1, 2));// 定义排版，一行三列
-		panel1.add(jta);
+		panel1.add(jtextField5);
+		panel.add(jtextField2);
+		panel.add(jtextField6);
 		
-	
+		panel.add(jtextField4);
 		panel.add(this.developer);
+		
+	    jFrame.addWindowListener(
+			
+		
+			new WindowAdapter() {
+		        @Override
+		        public void windowClosing(WindowEvent e)
+		        {
+                  super.windowClosing(e);
+		           System.exit(0);
+		        }
+			}
+		);
 
 
 		developer.addMouseListener(new MouseAdapter() {
@@ -73,13 +97,26 @@ class MyRadio {
 			
 			
 		public void mouseClicked(MouseEvent event) {
-			jta.setText("");
+
 			String url="";
-			String panduan="qqqqqqq";
+		
+			
+			developer.setEnabled(false);
+			developer.setText("正在执行");
 			
 			
-			
-			getn();
+			 new Thread() {
+	                {
+	                    this.setDaemon(true);
+	                }
+	                public void run() {
+	            		getn();
+	                 
+	                }
+	               
+	            }.start();
+		
+	
 	
 			 }});
 		
@@ -97,6 +134,7 @@ class MyRadio {
 	}
 	
 	private static void getn(){
+		String text="";
 
 	    Connection conn = getConn();
 /*	    String sql = "select * from area1";*/
@@ -132,9 +170,9 @@ class MyRadio {
 	          	newnew.setId(rs.getString("id"));
 	          	newnew.setContent(rs.getString("content"));
 	           	newnew.setAddtime(rs.getString("add_time"));
-	           	newnew.setSeodescription(rs.getString("seo_title"));
+	           	newnew.setSeodescription(rs.getString("seo_keywords")+","+jtextField2.getText()+","+ rs.getString("seo_title")+"-"+rs.getString("seo_description"));
 	           	newnew.setSeokeywords(rs.getString("seo_keywords"));
-	           	newnew.setSeotitle(rs.getString("seo_description"));
+	           	newnew.setSeotitle(rs.getString("seo_keywords")+","+jtextField2.getText()+"-"+rs.getString("seo_title")+"-"+jtextField4.getText());
 	
 	           	newnew.setSource(rs.getString("source"));
 	           	newnew.setAuthor(rs.getString("author"));
@@ -147,7 +185,7 @@ class MyRadio {
 	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
 	          		String tmp = newnew.getAddtime();
 	          		tmp=tmp.replace("-", "");
-	          	   	newnew.setAddtimestring(tmp.substring(0, 7));
+	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
 	          	}
 	          		
 	          		
@@ -160,10 +198,20 @@ class MyRadio {
 	        	
 	        	
 	          
-	            System.out.println(j);
+	     
 	         
 	           
 	            j++;
+	            text="==============id " + newnew.getId() + "生成开始=====第"+j+"条 \r\n";
+	            System.out.println("==============id " + newnew.getId() + "生成开始====="+"\r\n");
+	        
+	 
+	       		jtextField5.setText(text);
+	       		
+	       		jtextField5.paintImmediately(jtextField5.getBounds());
+	       		
+	       	
+	  		
 	        }
 	            System.out.println("============================");
 	    } catch (SQLException e) {
@@ -179,12 +227,49 @@ class MyRadio {
 	private static void genFremarker(Map map) {
 		// TODO Auto-generated method stub
 		try {
-			FreeMarkerUtil.writeToContent(map, "", "", "", "");
+			FreeMarkerUtil.writeToContent(map, jtextField6.getText(), "", "", "");
 		}  catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+
+/*	 List<News> list = new ArrayList();
+	if(newsMap.get(c.getChannelCode())!=null){
+		List l = newsMap.get(c.getChannelCode());
+		if(l.size()>10){
+			list = l.subList(0, 10);
+			list=getRandomList(l,10);
+		
+		}else{
+			list=getRandomList(l,l.size());
+		}
+		
+		
+	
+	}*/
+	
+	public static List getRandomList(List paramList,int count){
+        if(paramList.size()<count){
+            return paramList;
+        }
+        Random random=new Random();
+        List<Integer> tempList=new ArrayList<Integer>();
+        List<Object> newList=new ArrayList<Object>();
+        int temp=0;
+        for(int i=0;i<count;i++){
+            temp=random.nextInt(paramList.size());//将产生的随机数作为被抽list的索引
+            if(!tempList.contains(temp)){
+                tempList.add(temp);
+                newList.add(paramList.get(temp));
+            }
+            else{
+                i--;
+            }   
+        }
+        return newList;
+    }
 
 	private static Connection getConn() {
 		

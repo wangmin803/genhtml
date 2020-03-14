@@ -3,12 +3,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>
-    <#if new.seotitle??>
-    	${new.seotitle}
-	</#if>
+<title><#if new.seotitle??>${new.seotitle}</#if>
 </title>
-<meta name="keywords" content="<#if new.keywords??>${new.keywords}</#if>" />
+<meta name="keywords" content="<#if new.seokeywords??>${new.seokeywords}</#if>" />
 <meta name="description" content="<#if new.seodescription??>${new.seodescription}</#if>" />
 <link rel="stylesheet" type="text/css" href="/templates/main/css/style.css" />
 <script type="text/javascript" charset="utf-8" src="/scripts/jquery/jquery-1.11.2.min.js"></script>
@@ -105,7 +102,7 @@
 <h4>资讯类别</h4>
 <ul class="navbar">
 <li>
-<h5><a href="/history/list-55.html">历史</a></h5>
+<h5><a href="/${new.channeltitle}/list-${new.categoryId}.html">${new.categoryTitle}</a></h5>
 <p>
 </p>
 </li>

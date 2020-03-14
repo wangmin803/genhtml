@@ -32,13 +32,13 @@ public class FreeMarkerUtil {
 		template.setEncoding("UTF-8");
 	    New newnews = (New)map.get("new");
 	    
-	    File dir = new File("d:" +File.separator+"a");
+	    File dir = new File(templatePath);
 	    if(!dir.exists()){
 	    	dir.mkdir();
 	    }
 	    
 
-	    File htmlFile = new File("d:" +File.separator+"a"+File.separator +"show"+newnews.getAddtimestring()+"-"+newnews.getId()+".html");
+	    File htmlFile = new File(templatePath+File.separator +"show"+newnews.getAddtimestring()+"-"+newnews.getId()+".html");
 		Writer out = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream(htmlFile), "UTF-8"));
 
