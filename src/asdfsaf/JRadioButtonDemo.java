@@ -47,8 +47,8 @@ class MyRadio {
 	private JPanel panel1 = new JPanel();// /定义一个面板
 	private JButton developer = new JButton("生成文件");
 	
-	private static JTextField jtextField2 = new JTextField("自定义2");
-	private static JTextField jtextField4 = new JTextField("自定义4");
+	private static JTextField jtextField2 = new JTextField("丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网");
+	private static JTextField jtextField4 = new JTextField("雅客_丰胸网");
 	private static JTextField jtextField5 = new JTextField("结果");
 	
 	private static JTextField jtextField6 = new JTextField("D:\\aaa");
