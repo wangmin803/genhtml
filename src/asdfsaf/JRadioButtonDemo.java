@@ -7,8 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -29,10 +27,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
-import freemarker.template.TemplateException;
 
 
  
@@ -45,8 +40,8 @@ class MyRadio {
 
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
-	private JButton developer = new JButton("生成文件");
-	
+	private JButton developer = new JButton("生成内容页");
+	private JButton developer1 = new JButton("生成首页");
 	private static JTextField jtextField2 = new JTextField("丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网");
 	private static JTextField jtextField4 = new JTextField("雅客_丰胸网");
 	private static JTextField jtextField5 = new JTextField("结果");
@@ -73,7 +68,7 @@ class MyRadio {
 		
 		panel.add(jtextField4);
 		panel.add(this.developer);
-		
+		panel.add(this.developer1);
 	    jFrame.addWindowListener(
 			
 		
@@ -88,19 +83,38 @@ class MyRadio {
 		);
 
 
+	    
+	    developer1.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				String url="";
+				developer1.setEnabled(false);
+				developer1.setText("正在执行");
+				
+				
+				 new Thread() {
+		                {
+		                    this.setDaemon(true);
+		                }
+		                public void run() {
+		            		getnsy();
+		                 
+		                }
+						
+		            }.start();
+			
+		
+		
+				 }
+	    	
+	    	
+	    	
+	    });
+	    
+	    
 		developer.addMouseListener(new MouseAdapter() {
 			
-			
-			
-	
-			
-			
-			
 		public void mouseClicked(MouseEvent event) {
-
 			String url="";
-		
-			
 			developer.setEnabled(false);
 			developer.setText("正在执行");
 			
@@ -131,6 +145,176 @@ class MyRadio {
 					}
 				});
  
+	}
+	
+	private static void getnsy(){
+		String text="";
+	    Connection conn = getConn();
+/*	    String sql = "select * from area1";*/
+/*	    String sql1 = "select * from area3";*/
+	    
+	    String sql1 = "SELECT * FROM ( SELECT TOP 10 id,'news'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_news " + 
+	    		"order by id desc " + 
+	    		") a " + 
+	    		"UNION ALL " + 
+	    		"SELECT * FROM ( " + 
+	    		"SELECT TOP 10 id,'tech'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_tech " + 
+	    		"order by id desc " + 
+	    		") a" + 
+	    		
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'yule'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_yule" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'game'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_game" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'sports'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_sports" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'finance'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_finance" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'military'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_military" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'world'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_world" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'fashion'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_fashion" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'travel'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_travel" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'discovery'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_discovery" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'baby'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_baby" + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'regimen'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_regimen " + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'essay'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_essay " + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'history'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_history " + 
+	    		"order by id desc" + 
+	    		") a" + 
+	    		
+	    		"UNION ALL" + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 id,'food'as channel_id,title,img_url,add_time" + 
+	    		"  FROM dt_channel_article_food " + 
+	    		"order by id desc" + 
+	    		") a";
+		Map<String,Object> root = new HashMap<String, Object>();
+		
+	
+		Map<String,List<New>> map  = new HashMap<String,List<New>>();
+	
+	    
+	    PreparedStatement pstmt;
+	    try {
+	        pstmt = (PreparedStatement)conn.prepareStatement(sql1);
+	        ResultSet rs = pstmt.executeQuery();
+	        int col = rs.getMetaData().getColumnCount();
+	        System.out.println("============================");
+	        int j=1;
+	        while (rs.next()) {
+	        	New newnew  = new New();
+	        	newnew.setTitle(rs.getString("title"));
+	          	newnew.setId(rs.getString("id"));
+	           	newnew.setAddtime(rs.getString("add_time"));
+	           	newnew.setChannelId(rs.getString("channel_id"));
+	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
+	          		String tmp = newnew.getAddtime();
+	          		tmp=tmp.replace("-", "");
+	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
+	          	}
+	          	
+	          	String key = rs.getString("channel_id");
+	          	if(map.get(key)!=null){
+	          		List list = map.get(key);
+	          		list.add(newnew);
+	          		map.put(key, list);
+	          	}else {
+	          		ArrayList list = new ArrayList();
+	          		list.add(newnew);
+	        		map.put(key, list);
+	          	}
+	          	
+	          	//把第一个有图的放在第一位
+	          	//有第二个有图的放在第二位
+	          	//剩下的放在后边
+	          	
+	          	
+	      
+	            j++;
+	            text="==============id " + newnew.getId() + "生成开始=====第"+j+"条 \r\n";
+	            System.out.println("==============id " + newnew.getId() + "生成开始====="+"\r\n");
+	       		jtextField5.setText(text);
+	       		jtextField5.paintImmediately(jtextField5.getBounds());
+	        }
+	        
+	        
+			/*
+			 * root.put("new",newnew); genFremarkersy(root);
+			 */
+	        
+	            System.out.println("============================");
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	  
+	
+		
+		
+	
 	}
 	
 	private static void getn(){
@@ -233,6 +417,18 @@ class MyRadio {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	private static void genFremarkersy(Map map) {
+		// TODO Auto-generated method stub
+		try {
+			FreeMarkerUtil.writeToContentsy(map, jtextField6.getText(), "", "", "");
+		}  catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 
 /*	 List<News> list = new ArrayList();

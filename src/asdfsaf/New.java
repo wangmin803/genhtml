@@ -22,6 +22,13 @@ public class New {
 	private String categoryId;
 	private String categoryTitle;
 	private String addtimestring;
+	private String imgurl;
+	public String getImgurl() {
+		return imgurl;
+	}
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
 	public String getAddtimestring() {
 		return addtimestring;
 	}
