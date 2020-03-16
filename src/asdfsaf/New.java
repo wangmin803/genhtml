@@ -13,10 +13,11 @@ public class New {
 	private String seotitle;
 	private String seodescription;
 	private String seokeywords;
-	private String channelId;
+
 	        
 	private String source;
 	private String author;
+	private String channelId;
 	private String channelname;
 	private String channeltitle;
 	private String categoryId;
