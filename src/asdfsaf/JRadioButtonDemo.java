@@ -155,7 +155,7 @@ class MyRadio {
 	    
 	    String sql1 = "SELECT * FROM ( SELECT TOP 10 id,'news'as channel_id,title,img_url,add_time" + 
 	    		"  FROM dt_channel_article_news " + 
-	    		"order by id desc " + 
+	    		"order by id desc,img_url desc " + 
 	    		") a " + 
 	    		"UNION ALL " + 
 	    		"SELECT * FROM ( " + 
