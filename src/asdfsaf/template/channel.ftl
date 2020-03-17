@@ -3,25 +3,31 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网</title>
+<title>丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网 - 丰胸资讯</title>
 <meta name="keywords" content="丰胸,隆胸,胸部,乳房,安全,办法,产后,产品,吃什么,多少钱,方法,关于,技巧,健康,可以,快速,女人,女性,偏小,平胸,如何,什么,食物,松弛,缩小,太瘦,天然,为何,为什么,物理,下垂,效果,胸平,胸外扩,胸小,影响,应该,有效,有助于,孕期,运动,怎么,怎样,正确,中药,最好,最快" />
 <meta name="description" content="雅客_丰胸网是女性专属的丰胸秘籍，为女性量身定制丰胸的最快方法，内含丰胸产品、丰胸食谱、运动丰胸、物理丰胸、丰胸整形等专业健康丰胸方法知识，更好的回答丰胸好不好,丰胸哪家好,整形及丰胸整形医院等相关丰胸整形的问题，让女性学会如何丰胸，为你提供丰胸百科知识上的帮助，打造中国最专业的女性丰胸资讯网站。" />
 <link rel="stylesheet" type="text/css" href="/templates/main/css/style.css" />
 <script type="text/javascript" charset="utf-8" src="/scripts/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/templates/main/js/jquery.flexslider-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/templates/main/js/jqslider.js"></script>
 <script type="text/javascript" charset="utf-8" src="/templates/main/js/common.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/fxw.js"></script>
-
+<script type="text/javascript">
+$(function(){
+    $("#focus-box").flexslider({
+        directionNav: false,
+		pauseOnAction: false
+	});
+});
+</script>
+</head>
+<body id="fxzx">
 <div class="header">
 <div class="head-top">
 <div class="section">
 <div class="left-box">
 <div class="search">
-
 </div>
 </div>
-<#noparse>
 <script type="text/javascript">
                 $.ajax({
                     type: "POST",
@@ -38,8 +44,7 @@
                         }
                     }
                 });
-</script>
-</#noparse>
+            </script>
 <div id="menu" class="right-box">
 </div>
 </div>
@@ -47,7 +52,13 @@
 <div class="head-nav">
 <div class="section">
 <div class="logo">
-<a href="/index.html"><img src="/templates/main/images/logo.png" /></a>
+<a href="/index.html"><script type="text/javascript" style="display:none">
+//<![CDATA[
+window.__mirage2 = {petok:"79fba7fbeac891187398eed277a4c65f122bb41d-1584429247-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="https://edge.yunjiasu.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js"></script>
+<img data-cfsrc="/templates/main/images/logo.png" style="display:none;visibility:hidden;" /><noscript><img src="/templates/main/images/logo.png" /></noscript></a>
 </div>
 <div class="nav-box">
 <ul>
@@ -75,43 +86,43 @@
 <li class="fxzx"><a href="/fxzx.html">丰乳资讯</a></li>
 </ul>
 </div>
-
 </a>
 </div>
 </div>
 </div>
 </div>
-
-
-
-
-<#list listsy as newSy>
 <div class="section">
-<div class="main-tit">
-<h2>${newSy.channeltitle}  </h2>
-<p>
-
-<a href="/${newSy.channelname}.html">更多<i>+</i></a>
-</p>
+<div class="location">
+<span>当前位置：</span>
+<a href="/index.html">首页</a> &gt;
+<a href="/${newsy.channelname}.html">${newsy.channeltitle}</a>
 </div>
+</div>
+<div class="section">
 <div class="wrapper clearfix">
 <div class="wrap-box">
-<div class="left-455" style="margin:0;height:183px;">
-<div id="focus-box1" class="focus-box">
+<div class="left-455" style="margin:0;height:341px;">
+<div id="focus-box" class="focus-box">
 <ul class="slides">
 
 
-<#list newSy.list as newone >
+
+
+<#list newsy.list as newone >
 <#if newone.imgurl!=''>
+<#if newone_index <= 8>
+
 <li>
-<a title="${newone.title}" href="/${newSy.channelname}/show${newone.addtimestring}-${newone.id}.html">
+<a title="${newone.title}" href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">
 <span class="note-bg"></span>
 <span class="note-txt">${newone.title}</span>
 <img src="${newone.imgurl}" />
 </a>
 </li>
 </#if>
+</#if>
 </#list>
+
 </ul>
 </div>
 </div>
@@ -119,16 +130,15 @@
 <ul class="side-txt-list">
 
 
-<#list newSy.list as newone >
-<#if newone_index <= 4>
-<#if newone_index == 0>
-<li class="tit"><a href="/${newSy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
+<#list newsy.list as newone >
+<#if newone_index <= 9>
+<#if newone_index == 0||newone_index == 4 >
+<li class="tit"><a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
 <#else>
-<li><a href="/${newSy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
+<li><span>{newone.addtimestring}</span><a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
+</#if>
 </#if>
 </#list>
-
-
 
 </ul>
 </div>
@@ -136,16 +146,18 @@
 <ul class="side-img-list">
 
 
-<#list newSy.list as newone >
+
+
+<#list newsy.list as newone >
 <#if newone.imgurl!=''>
-<#if newone_index <= 1>
+<#if newone_index <= 3>
 <li>
 <div class="img-box">
 <label>${newone_index+1}</label>
 <img src="${newone.imgurl}" />
 </div>
 <div class="txt-box">
-<a href="/${newone.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a>
+<a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a>
 <span>${newone.addtimestring}</span>
 </div>
 </li>
@@ -160,43 +172,107 @@
 </div>
 </div>
 
- 
+
+<div class="section">
+<div class="main-tit">
+<h2>${newsy.channeltitle}</h2>
+<p>
+<a href="/${newsy.channelname}.html">更多<i>+</i></a>
+</p>
+</div>
+<div class="wrapper clearfix">
+<div class="wrap-box">
+<div class="left-925">
+<div class="pad-15 bg-wrap">
+<ul class="rel-list">
+
+
+
+
+
+
+
+
+<#list newsy.list as newone >
+<#if newone.imgurl!=''>
+<#if newone_index <= 5>
+<li>
+<div class="img-box">
+<a title="${newone.title}">
+<img src="${newone.imgurl}">
+</a>
+</div>
+<div class="info">
+<h3><a title="${newone.title}" href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></h3>
+<p></p>
+<span>${newone.addtimestring}</span>
+</div>
+</li>
+
+</#if>
+</#if>
 </#list>
 
 
 
-<div class="section">
-<div class="wrapper clearfix">
-<div class="left-690 side-link-wrap" style="margin:0;">
-<div class="main-tit">
-<h2>友情链接</h2>
-<p>
-<a href="/link.html">更多<i>+</i></a>
- </p>
-</div>
-<div class="side-link clearfix">
-<ul class="img">
+
+
+
 </ul>
-<div class="txt">
 </div>
 </div>
-</div>
-<div class="left-455">
-<div class="main-tit">
-<h2>留言反馈</h2>
-<p>
-<a href="/feedback.html">更多<i>+</i></a>
-</p>
-</div>
-<div class="side-book">
-<ul>
+<div class="left-220">
+<div class="pad-15 bg-wrap">
+<ul class="focus-list">
+
+
+
+
+<#list newsy.list as newone >
+<#if newone.imgurl!=''>
+<#if newone_index <= 9>
+
+<li>
+<label class="hot">${newone_index+1}</label>
+<a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a>
+</li>
+
+
+</#if>
+</#if>
+</#list>
+
+
+
+
+
 </ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 
 
+<!--
+<div class="more">
+热门标签
+<a href="/search.html?tags=丰胸"> 丰胸 (1101)</a>
+<a href="/search.html?tags=丰胸产品"> 丰胸产品 (682)</a>
+<a href="/search.html?tags=丰胸方法"> 丰胸方法 (597)</a>
+<a href="/search.html?tags=如何丰胸"> 如何丰胸 (533)</a>
+<a href="/search.html?tags=按摩丰胸"> 按摩丰胸 (511)</a>
+<a href="/search.html?tags=丰胸食物"> 丰胸食物 (488)</a>
+<a href="/search.html?tags=如何的丰胸"> 如何的丰胸 (485)</a>
+<a href="/search.html?tags=产后丰胸"> 产后丰胸 (477)</a>
+<a href="/search.html?tags=丰胸技巧"> 丰胸技巧 (475)</a>
+<a href="/search.html?tags=物理丰胸"> 物理丰胸 (470)</a>
+</div>
+
+-->
+
+
+</div>
 <div class="footer">
 <div class="section">
 <div class="foot-nav">
@@ -232,6 +308,5 @@
 </div>
 </div>
 </div>
-
 </body>
 </html>
