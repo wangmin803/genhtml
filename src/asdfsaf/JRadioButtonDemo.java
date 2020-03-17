@@ -42,7 +42,7 @@ class MyRadio {
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
 	private JButton developer = new JButton("生成内容页");
-	private JButton developer1 = new JButton("生成首页");
+	private static JButton developer1 = new JButton("生成首页");
 	private static JTextField jtextField2 = new JTextField("丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网");
 	private static JTextField jtextField4 = new JTextField("雅客_丰胸网");
 	private static JTextField jtextField5 = new JTextField("结果");
@@ -155,107 +155,107 @@ class MyRadio {
 /*	    String sql1 = "select * from area3";*/
 	    
 	    String sql1 = "SELECT * FROM ( SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_news a a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"  FROM dt_channel_article_news a ,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc,img_url desc " + 
 	    		") a " + 
 	    		"UNION ALL " + 
 	    		"SELECT * FROM ( " + 
 	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_tech a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"  FROM dt_channel_article_tech a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc " + 
 	    		") a" + 
 	    		
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP ,a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_yule a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_yule a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_game a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_game a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_sports a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_sports a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_finance a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_finance a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_military a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_world a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_fashion a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_travel a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_discovery a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_baby a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
-	    		"order by a.id desc" + 
-	    		") a" + 
-	    		"UNION ALL" + 
-	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_regimen a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_military a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
 	    		
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_essay a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_world a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_fashion a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_travel a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_discovery a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_baby a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_regimen a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
 	    		
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_history a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_essay a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		"order by a.id desc" + 
 	    		") a" + 
 	    		
-	    		"UNION ALL" + 
+	    		" UNION ALL " + 
 	    		"SELECT * FROM (" + 
-	    		"SELECT TOP a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
-	    		"  FROM dt_channel_article_food a,wang.dbo.dt_site_channel b  where a.channel_id=b.id " + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_history a,dt_site_channel b  where a.channel_id=b.id " + 
+	    		"order by a.id desc" + 
+	    		") a" + 
+	    		
+	    		" UNION ALL " + 
+	    		"SELECT * FROM (" + 
+	    		"SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time" + 
+	    		"  FROM dt_channel_article_food a,dt_site_channel b  where a.channel_id=b.id " + 
 	    		
 	    		"order by a.id desc" + 
 	    		") a";
 	    
-	    
+	    System.out.println(sql1);
 	    
 	    
 	    
@@ -263,13 +263,13 @@ class MyRadio {
 	    
 	    //
 /*	    SELECT * FROM ( SELECT TOP 10 a.id,channel_id,  b.name channel_name,b.title channel_title,  a.title,a.img_url,a.add_time
-	    		 FROM wang.dbo.dt_channel_article_news a,wang.dbo.dt_site_channel b
+	    		 FROM dt_channel_article_news a,dt_site_channel b
 				 where a.channel_id=b.id
 	    		order by id desc,img_url desc 	) a
 UNION ALL 
 SELECT * FROM ( 
 	    		SELECT TOP 10 a.id,channel_id, b.name channel_name,b.title channel_title,a.title,a.img_url,a.add_time 
-	    		  FROM wang.dbo.dt_channel_article_tech a,wang.dbo.dt_site_channel b
+	    		  FROM dt_channel_article_tech a,dt_site_channel b
 				 where a.channel_id=b.id
 	    		order by id desc 
 ) a*/
@@ -298,7 +298,7 @@ SELECT * FROM (
 	           	newnew.setChannelId(rs.getString("channel_id"));
 	           	newnew.setChannelname(rs.getString("channel_name"));
 	           	newnew.setChanneltitle(rs.getString("channel_title"));
-
+	           	newnew.setImgurl(rs.getString("img_url"));
 	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
 	          		String tmp = newnew.getAddtime();
 	          		tmp=tmp.replace("-", "");
@@ -316,9 +316,7 @@ SELECT * FROM (
 	        		map.put(key, list);
 	          	}
 	          	
-	          	//把第一个有图的放在第一位
-	          	//有第二个有图的放在第二位
-	          	//剩下的放在后边
+	        
 	     
 	        }
 	        List<NewSy> listsy = new ArrayList();
@@ -329,19 +327,19 @@ SELECT * FROM (
 	        	newsy.setChannelId(list.get(0).getChannelId());
 	        	newsy.setChannelname(list.get(0).getChannelname());
 	        	newsy.setChanneltitle(list.get(0).getChanneltitle());
-	        	newsy.setTitle(list.get(0).getTitle());
+
 	        	newsy.setList(list);
 	        	listsy.add(newsy);
 	        	
 	        }
-	        
-	        
-			/*
-			 * root.put("new",newnew); genFremarkersy(root);
-			 */
+	        System.out.println(listsy.size());
+	        root.put("listsy",listsy);
+			genFremarkersy(root);
+			 
 	  		jtextField5.setText("生成完毕");
        		jtextField5.paintImmediately(jtextField5.getBounds());
-	        
+       		developer1.setEnabled(true);
+       
 	            System.out.println("============================");
 	    } catch (SQLException e) {
 	        e.printStackTrace();
