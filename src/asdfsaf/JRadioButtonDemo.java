@@ -71,6 +71,7 @@ class MyRadio {
 		panel.add(jtextField4);
 		panel.add(this.developer);
 		panel.add(this.developer1);
+		panel.add(this.developer2);
 	    jFrame.addWindowListener(
 			
 		
@@ -618,6 +619,7 @@ SELECT * FROM (
 	        int col = rs.getMetaData().getColumnCount();
 	        System.out.println("============================");
 	        int j=1;
+	        List<New> list = new ArrayList<New>();//用于阅读排行展示
 	        while (rs.next()) {
 	        	New newnew  = new New();
 	        	newnew.setTitle(rs.getString("title"));
@@ -648,7 +650,31 @@ SELECT * FROM (
 	          
 	          	
 	        	root.put("new",newnew);
-	        	genFremarker(root);
+	        
+	        	
+	        	if(j<=10) {
+	        		//list 循环生成
+	        		list.add(newnew);
+	        		
+	        	}else {
+	        		
+	        		//j=11以后以经准备好了前10条数据，可以用于阅读排行展示
+	        		
+	        		
+	        		genFremarker(root);
+	        		if(j==11) {
+	        			
+	        			for(New one:list) {
+	        			   	root.put("new",one);
+	        			   	genFremarker(root);
+		        		}
+	        		}
+	        	
+	        		
+	        	}
+	        	
+	        	
+	        	
 	        	
 	        	
 	          
@@ -703,7 +729,7 @@ SELECT * FROM (
 	private static void genFremarkerlm(Map map) {
 		// TODO Auto-generated method stub
 		try {
-			FreeMarkerUtil.writeToContentsy(map, jtextField6.getText(), "", "", "");
+			FreeMarkerUtil.writeToContentlm(map, jtextField6.getText(), "", "", "");
 		}  catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

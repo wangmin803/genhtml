@@ -135,7 +135,7 @@ window.__mirage2 = {petok:"79fba7fbeac891187398eed277a4c65f122bb41d-1584429247-1
 <#if newone_index == 0||newone_index == 4 >
 <li class="tit"><a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
 <#else>
-<li><span>{newone.addtimestring}</span><a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
+<li><span>${newone.addtimestring}</span><a href="/${newsy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
 </#if>
 </#if>
 </#list>

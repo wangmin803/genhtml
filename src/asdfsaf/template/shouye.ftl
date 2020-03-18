@@ -126,6 +126,7 @@
 <#else>
 <li><a href="/${newSy.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></li>
 </#if>
+</#if>
 </#list>
 
 

@@ -31,14 +31,15 @@ public class FreeMarkerUtil {
 		freemarkerCfg.setEncoding(Locale.getDefault(), "UTF-8");
 		template.setEncoding("UTF-8");
 	    New newnews = (New)map.get("new");
+	 
 	    
-	    File dir = new File(templatePath);
+	    File dir = new File(templatePath+File.separator+newnews.getChannelname());
 	    if(!dir.exists()){
 	    	dir.mkdir();
 	    }
 	    
 
-	    File htmlFile = new File(templatePath+File.separator +"show"+newnews.getAddtimestring()+"-"+newnews.getId()+".html");
+	    File htmlFile = new File(templatePath+File.separator+newnews.getChannelname()+File.separator +"show"+newnews.getAddtimestring()+"-"+newnews.getId()+".html");
 		Writer out = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream(htmlFile), "UTF-8"));
 
@@ -83,13 +84,15 @@ public class FreeMarkerUtil {
 		freemarkerCfg.setEncoding(Locale.getDefault(), "UTF-8");
 		template.setEncoding("UTF-8");
 		NewSy newsy = (NewSy)map.get("newsy");
+		
+
 	    
 	    File dir = new File(templatePath);
 	    if(!dir.exists()){
 	    	dir.mkdir();
 	    }
 
-	    File htmlFile = new File(templatePath+File.separator +newsy.getChannelname()+"html");
+	    File htmlFile = new File(templatePath+File.separator +newsy.getChannelname()+".html");
 		Writer out = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream(htmlFile), "UTF-8"));
 		template.process(map, out);
