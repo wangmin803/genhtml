@@ -27,6 +27,7 @@ import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -44,34 +45,95 @@ class MyRadio {
 	private JButton developer = new JButton("生成内容页");
 	private static JButton developer1 = new JButton("生成首页");
 	private static JButton developer2 = new JButton("生成栏目页");
+	
+	
+	private static JLabel sitesytitlelabel = new JLabel("网站首页标题");
+	
 	private static JTextField jtextField2 = new JTextField("丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网");
+	
+	
+	private static JLabel sitetitlelabel = new JLabel("网站标题");
 	private static JTextField jtextField4 = new JTextField("雅客_丰胸网");
+	
+	
+	
+	
+	
 	private static JTextField jtextField5 = new JTextField("结果");
 	
+	private static JLabel ljlabel = new JLabel("生成路径");
 	private static JTextField jtextField6 = new JTextField("D:\\aaa");
 	
+	private static JLabel emptylable = new JLabel("");
+	private static JLabel emptylable1 = new JLabel("");
+	private static JLabel emptylable2 = new JLabel("");
+
+	private static JLabel channelkeywordslabel =new JLabel("栏目页关键词");
+	private static JLabel channeldescriptionlabel = new JLabel("栏目页描述");
+	
+	
+
+	private static JTextField channelkeywords = new JTextField("丰胸,隆胸,胸部,乳房,安全,办法,产后,产品,吃什么,多少钱,方法,关于,技巧,健康,可以,快速,女人,女性,偏小,平胸,如何,什么,食物,松弛,缩小,太瘦,天然,为何,为什么,物理,下垂,效果,胸平,胸外扩,胸小,影响,应该,有效,有助于,孕期,运动,怎么,怎样,正确,中药,最好,最快");
+	private static JTextField channeldescription = new JTextField("雅客_丰胸网是女性专属的丰胸秘籍，为女性量身定制丰胸的最快方法，内含丰胸产品、丰胸食谱、运动丰胸、物理丰胸、丰胸整形等专业健康丰胸方法知识，更好的回答丰胸好不好,丰胸哪家好,整形及丰胸整形医院等相关丰胸整形的问题，让女性学会如何丰胸，为你提供丰胸百科知识上的帮助，打造中国最专业的女性丰胸资讯网站。");
 	
 	
  
 	public MyRadio() {
 		
 		
-		panel.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
-		panel.setLayout(new GridLayout(2, 6));// 定义排版，一行三列
+
+		
+
+		
+		
+		
 	
 		
 		//http://data.zz.baidu.com/update?site=https://www.jzn360.com&token=eMF5yE1vV5fBasdfeqE
 		
-		panel1.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
-		panel1.setLayout(new GridLayout(1, 2));// 定义排版，一行三列
-		panel1.add(jtextField5);
-		panel.add(jtextField2);
-		panel.add(jtextField6);
 		
+	
+		
+		panel.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
+		panel.setLayout(new GridLayout(9, 2));// 定义排版，一行三列
+		
+		
+		panel.add(sitesytitlelabel);
+		panel.add(jtextField2);
+	
+		
+		panel.add(sitetitlelabel);
 		panel.add(jtextField4);
-		panel.add(this.developer);
+		
+		panel.add(ljlabel);
+		panel.add(jtextField6);
+
+		
+
+		panel.add(channelkeywordslabel);
+		panel.add(channelkeywords);
+		panel.add(channeldescriptionlabel);
+		panel.add(channeldescription);
+		
+	
+	
+
+	
+
 		panel.add(this.developer1);
+		panel.add(this.emptylable2);
 		panel.add(this.developer2);
+		panel.add(this.emptylable1);
+		panel.add(this.developer);
+
+		
+		
+		panel1.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
+		panel1.setLayout(new GridLayout(2, 2));// 定义排版，一行三列
+		panel1.add(jtextField5);
+		
+		
+		
 	    jFrame.addWindowListener(
 			
 		
@@ -164,8 +226,9 @@ class MyRadio {
 			 }});
 		
 		
-		container.add(panel,BorderLayout.NORTH);// 加入面板
 		container.add(panel1,BorderLayout.CENTER);// 加入面板
+		container.add(panel,BorderLayout.NORTH);// 加入面板
+
 		this.jFrame.setSize(1000, 590);// 设置窗体大小
 		this.jFrame.setVisible(true);// 显示窗体
 		this.jFrame.addWindowListener(new WindowAdapter() { // 加入事件监听
@@ -306,6 +369,12 @@ SELECT * FROM (
 	    
 	    
 		Map<String,Object> root = new HashMap<String, Object>();
+		
+		
+		
+		root.put("channeltitle", jtextField2.getText());
+		root.put("channelkeywords", channelkeywords.getText());
+		root.put("channeldescription", channeldescription.getText());
 		
 	
 		Map<String,List<New>> map  = new HashMap<String,List<New>>();
@@ -511,6 +580,12 @@ SELECT * FROM (
 	    
 		Map<String,Object> root = new HashMap<String, Object>();
 		
+		
+	
+		
+
+
+		
 	
 		Map<String,List<New>> map  = new HashMap<String,List<New>>();
 	
@@ -531,6 +606,12 @@ SELECT * FROM (
 	           	newnew.setChannelname(rs.getString("channel_name"));
 	           	newnew.setChanneltitle(rs.getString("channel_title"));
 	           	newnew.setImgurl(rs.getString("img_url"));
+	    		
+	           	
+	           	root.put("channeltitle", jtextField2.getText()+" - "+rs.getString("channel_title"));
+	    		root.put("channelkeywords", channelkeywords.getText());
+	    		root.put("channeldescription", channeldescription.getText());
+	           	
 	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
 	          		String tmp = newnew.getAddtime();
 	          		tmp=tmp.replace("-", "");
@@ -595,111 +676,116 @@ SELECT * FROM (
 /*	    String sql = "select * from area1";*/
 /*	    String sql1 = "select * from area3";*/
 	    
-	    String sql1 = "select a.title ,a.id,a.content,a.add_time,a.seo_title,a.seo_keywords,a.seo_description,"
-	    		+ " a.channel_id,"
-	    		+ " b.name as channelname,"
-	    		+ " b.title as channeltitle,"
-	    		+ " a.source,"
-	    		+ " a.author,"
-	    		+ " a.category_id as category_id,"
-	    		+ " c.title as category_title"
-	    		+ " from dt_channel_article_food a,dt_site_channel b,dt_article_category c "
-	    		+ "where "
-	    		+ " a.channel_id = b.id and a.channel_id = c.channel_id and c.channel_id = b.id "
-	    		+ " and a.category_id = c.id"
-	    		+ "    order by id desc";
-		Map<String,Object> root = new HashMap<String, Object>();
-		
-	
+	    String[] array = new String[] {"yule","food","history", "essay", "regimen", "baby", "discovery", "travel", "fashion", "world", "military", "finance", "sports", "game", "tech", "news"};
 	    
-	    PreparedStatement pstmt;
-	    try {
-	        pstmt = (PreparedStatement)conn.prepareStatement(sql1);
-	        ResultSet rs = pstmt.executeQuery();
-	        int col = rs.getMetaData().getColumnCount();
-	        System.out.println("============================");
-	        int j=1;
-	        List<New> list = new ArrayList<New>();//用于阅读排行展示
-	        while (rs.next()) {
-	        	New newnew  = new New();
-	        	newnew.setTitle(rs.getString("title"));
-	          	newnew.setId(rs.getString("id"));
-	          	newnew.setContent(rs.getString("content"));
-	           	newnew.setAddtime(rs.getString("add_time"));
-	           	newnew.setSeodescription(rs.getString("seo_keywords")+","+jtextField2.getText()+","+ rs.getString("seo_title")+"-"+rs.getString("seo_description"));
-	           	newnew.setSeokeywords(rs.getString("seo_keywords"));
-	           	newnew.setSeotitle(rs.getString("seo_keywords")+","+jtextField2.getText()+"-"+rs.getString("seo_title")+"-"+jtextField4.getText());
-	
-	           	newnew.setSource(rs.getString("source"));
-	           	newnew.setAuthor(rs.getString("author"));
-	           	newnew.setCategoryId(rs.getString("category_id"));
-	           	newnew.setCategoryTitle(rs.getString("category_title"));
-	           	newnew.setChannelId(rs.getString("channel_id"));
-	          	newnew.setChannelname(rs.getString("channelname"));
-	          	newnew.setChanneltitle(rs.getString("channeltitle"));
-	          	
-	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
-	          		String tmp = newnew.getAddtime();
-	          		tmp=tmp.replace("-", "");
-	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
-	          	}
-	          		
-	          		
-	          	
-	       
-	          
-	          	
-	        	root.put("new",newnew);
-	        
-	        	
-	        	if(j<=10) {
-	        		//list 循环生成
-	        		list.add(newnew);
-	        		
-	        	}else {
-	        		
-	        		//j=11以后以经准备好了前10条数据，可以用于阅读排行展示
-	        		
-	        		
-	        		genFremarker(root);
-	        		if(j==11) {
-	        			
-	        			for(New one:list) {
-	        			   	root.put("new",one);
-	        			   	genFremarker(root);
-		        		}
-	        		}
-	        	
-	        		
-	        	}
-	        	
-	        	
-	        	
-	        	
-	        	
-	          
-	     
-	         
-	           
-	            j++;
-	            text="==============id " + newnew.getId() + "生成开始=====第"+j+"条 \r\n";
-	            System.out.println("==============id " + newnew.getId() + "生成开始====="+"\r\n");
-	        
-	 
-	       		jtextField5.setText(text);
-	       		
-	       		jtextField5.paintImmediately(jtextField5.getBounds());
-	       		
-	       	
-	  		
-	        }
-	            System.out.println("============================");
-	    } catch (SQLException e) {
-	        e.printStackTrace();
+	    for(String a:array) {
+	    	  String sql1 = "select a.title ,a.id,a.content,a.add_time,a.seo_title,a.seo_keywords,a.seo_description,"
+	  	    		+ " a.channel_id,"
+	  	    		+ " b.name as channelname,"
+	  	    		+ " b.title as channeltitle,"
+	  	    		+ " a.source,"
+	  	    		+ " a.author,"
+	  	    		+ " a.category_id as category_id,"
+	  	    		+ " a.img_url as imgurl,"
+	  	    		+ " c.title as category_title"
+	  	    		+ " from dt_channel_article_"+a+" a,dt_site_channel b,dt_article_category c "
+	  	    		+ "where "
+	  	    		+ " a.channel_id = b.id and a.channel_id = c.channel_id and c.channel_id = b.id "
+	  	    		+ " and a.category_id = c.id"
+	  	    		+ "    order by id desc";
+	  		Map<String,Object> root = new HashMap<String, Object>();
+	  	
+	  	    
+	  	    PreparedStatement pstmt;
+	  	    try {
+	  	        pstmt = (PreparedStatement)conn.prepareStatement(sql1);
+	  	        ResultSet rs = pstmt.executeQuery();
+	  	        int col = rs.getMetaData().getColumnCount();
+	  	        System.out.println("============================");
+	  	        int j=1;
+	  	        List<New> list = new ArrayList<New>();//用于阅读排行展示
+	  	        while (rs.next()) {
+	  	        	New newnew  = new New();
+	  	        	newnew.setTitle(rs.getString("title"));
+	  	          	newnew.setId(rs.getString("id"));
+	  	          	newnew.setContent(rs.getString("content"));
+	  	           	newnew.setAddtime(rs.getString("add_time"));
+	  	           	newnew.setSeodescription(rs.getString("seo_keywords")+","+jtextField2.getText()+","+ rs.getString("seo_title")+"-"+rs.getString("seo_description"));
+	  	           	newnew.setSeokeywords(rs.getString("seo_keywords"));
+	  	           	newnew.setSeotitle(rs.getString("seo_keywords")+","+jtextField2.getText()+"-"+rs.getString("seo_title")+"-"+jtextField4.getText());
+	  	
+	  	           	newnew.setSource(rs.getString("source"));
+	  	           	newnew.setAuthor(rs.getString("author"));
+	  	           	newnew.setCategoryId(rs.getString("category_id"));
+	  	           	newnew.setCategoryTitle(rs.getString("category_title"));
+	  	           	newnew.setChannelId(rs.getString("channel_id"));
+	  	          	newnew.setChannelname(rs.getString("channelname"));
+	  	          	newnew.setChanneltitle(rs.getString("channeltitle"));
+	  	         	newnew.setImgurl(rs.getString("imgurl"));
+	  	          	
+	  	          	
+	  	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
+	  	          		String tmp = newnew.getAddtime();
+	  	          		tmp=tmp.replace("-", "");
+	  	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
+	  	          	}
+	  	          		
+	  	          		
+	  	          	
+	  	       
+	  	          
+	  	          	
+	  	        	root.put("new",newnew);
+	  	        
+	  	        	
+	  	        	if(j<=1000) {
+	  	        		//list 循环生成
+	  	        		list.add(newnew);
+	  	        		
+	  	        	}else {
+	  	        		
+	  	        		//j=11以后以经准备好了前10条数据，可以用于阅读排行展示
+	  	        		
+	  	        		if(list!=null&&list.size()>0) {
+	  	        			if(list.size()>10) {
+	  	        				root.put("ydphlist", list.subList(0, 9));
+	  	        			}else {
+	  	        				root.put("ydphlist",list.subList(0, list.size()-1));
+	  	        			}
+	  	        		
+	  	        		}
+	  	        		
+	  	        		genFremarker(root);
+	  	        		if(j==11) {
+	  	        			
+	  	        			for(New one:list) {
+	  	        			   	root.put("new",one);
+	  	        			   	
+	  	        			   	genFremarker(root);
+	  		        		}
+	  	        		}
+	  	        	
+	  	        		
+	  	        	}
+	  	           
+	  	            j++;
+	  	            text="==============id " + newnew.getId() + "生成开始=====第"+j+"条 \r\n";
+	  	            System.out.println("==============id " + newnew.getId() + "生成开始====="+"\r\n");
+	  	        
+	  	 
+	  	       		jtextField5.setText(text);
+	  	       		
+	  	       		jtextField5.paintImmediately(jtextField5.getBounds());
+	  	       		
+	  	       	
+	  	  		
+	  	        }
+	  	            System.out.println("============================");
+	  	    } catch (SQLException e) {
+	  	        e.printStackTrace();
+	  	    }
+	  	  
 	    }
-	  
-	
-		
 		
 	}
 	

@@ -3,9 +3,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网</title>
-<meta name="keywords" content="丰胸,隆胸,胸部,乳房,安全,办法,产后,产品,吃什么,多少钱,方法,关于,技巧,健康,可以,快速,女人,女性,偏小,平胸,如何,什么,食物,松弛,缩小,太瘦,天然,为何,为什么,物理,下垂,效果,胸平,胸外扩,胸小,影响,应该,有效,有助于,孕期,运动,怎么,怎样,正确,中药,最好,最快" />
-<meta name="description" content="雅客_丰胸网是女性专属的丰胸秘籍，为女性量身定制丰胸的最快方法，内含丰胸产品、丰胸食谱、运动丰胸、物理丰胸、丰胸整形等专业健康丰胸方法知识，更好的回答丰胸好不好,丰胸哪家好,整形及丰胸整形医院等相关丰胸整形的问题，让女性学会如何丰胸，为你提供丰胸百科知识上的帮助，打造中国最专业的女性丰胸资讯网站。" />
+<title>${channeltitle}</title>
+<meta name="keywords" content="${channelkeywords}" />
+<meta name="description" content="${channeldescription}" />
+
 <link rel="stylesheet" type="text/css" href="/templates/main/css/style.css" />
 <script type="text/javascript" charset="utf-8" src="/scripts/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/templates/main/js/jquery.flexslider-min.js"></script>
@@ -112,6 +113,8 @@
 </li>
 </#if>
 </#list>
+
+
 </ul>
 </div>
 </div>

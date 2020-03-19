@@ -90,7 +90,7 @@
 <span>当前位置：</span>
 <a href="/index.html">首页</a> &gt;
 <a href="/${new.channelname}.html">${new.channeltitle}</a>
-&nbsp;&gt;&nbsp;<a href="/${new.channeltitle}/list-${new.categoryId}-1.html">${new.categoryTitle}</a>
+&nbsp;&gt;&nbsp;<a href="/${new.channelname}/list-${new.categoryId}-1.html">${new.categoryTitle}</a>
 </div>
 </div>
 
@@ -102,7 +102,7 @@
 <h4>资讯类别</h4>
 <ul class="navbar">
 <li>
-<h5><a href="/${new.channeltitle}/list-${new.categoryId}.html">${new.categoryTitle}</a></h5>
+<h5><a href="/${new.channelname}/list-${new.categoryId}.html">${new.categoryTitle}</a></h5>
 <p>
 </p>
 </li>
@@ -116,114 +116,44 @@
 <div class="sidebar-box">
 <h4>阅读排行</h4>
 <ul class="txt-list">
+
+
+
+
+
+
+<#list ydphlist as newone >
+<#if newone_index <= 9>
+<#if newone.imgurl!=''>
+
 <li>
-<label class="hot">1</label>
-<a href="/history/show20200110-182204.html">可靠_很多人搞不懂为什么英明神武的晋武帝司马炎将大位传给傻儿子司马衷，因为司马衷有个聪明儿子。司马炎为了将皇位传给孙子，于是先</a>
+<label>${newone_index+1}</label>
+<a href="/${newone.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a>
 </li>
-<li>
-<label>2</label>
-<a href="/history/show20200115-212933.html">公元前和公元后是什么意思？公元的起始年有什么故事吗？</a>
-</li>
-<li>
-<label>3</label>
-<a href="/history/show20200112-194026.html">电动按摩丰胸罩,电动丰胸的女人,电动丰胸电衣,女人电动按摩丰胸罩,丰胸方法-玄武门之变，李渊的禁军哪里去了？消灭太子就夺权了吗？</a>
-</li>
-<li>
-<label>4</label>
-<a href="/history/show20200115-213198.html">【印度的排华历史！】
-印度曾是中国人海外淘金的胜地，吸引了一代又一代的中国移民。
-1778年（乾隆四十三年），广东梅州人</a>
-</li>
-<li>
-<label>5</label>
-<a href="/history/show20200113-197599.html">催眠能否丰胸,催眠瘦身丰胸,催眠术丰胸,女人催眠能否丰胸,女性-三国第一谋士是谁，为什么？</a>
-</li>
-<li>
-<label>6</label>
-<a href="/history/show20200111-187388.html">丰胸运动怎么做,丰胸运动姿势,丰胸运动姿势图,女人丰胸运动怎么做,乳房-看大明风华，宣宗朱瞻基始终为自己皇位得来不正而揪心，跟他的三叔二叔扯也扯不清，成了他的心病，估计这也可能是他早逝的原因之</a>
-</li>
-<li>
-<label>7</label>
-<a href="/history/show20200103-136370.html">婚前_李世民死前试探武则天，武则天用8字躲过一劫。</a>
-</li>
-<li>
-<label>8</label>
-<a href="/history/show20200103-137853.html">产品_曾被称为“晚清第一武林高手”，死在八国联军长枪下，年仅52</a>
-</li>
-<li>
-<label>9</label>
-<a href="/history/show20200103-136687.html">木瓜_大明赵士桢发明的掣电铳是当时世界最先进的燧发枪吗？</a>
-</li>
-<li>
-<label>10</label>
-<a href="/history/show20200103-136385.html">产后_唐朝巅峰时期版图最西到达哪里？千万不要被谭版地图给骗了</a>
-</li>
+
+</#if>
+</#if>
+</#list>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ul>
 </div>
 <div class="sidebar-box">
 <h4>热门标签</h4>
 <div class="tags-box clearfix">
 <a href="/search.html?tags=%e4%b8%b0%e8%83%b8">丰胸<i>(1101)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e4%ba%a7%e5%93%81">丰胸产品<i>(682)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e6%96%b9%e6%b3%95">丰胸方法<i>(597)</i></a>
-<a href="/search.html?tags=%e5%a6%82%e4%bd%95%e4%b8%b0%e8%83%b8">如何丰胸<i>(532)</i></a>
-<a href="/search.html?tags=%e5%a5%b3%e4%ba%ba%e4%b8%b0%e8%83%b8">女人丰胸<i>(440)</i></a>
-<a href="/search.html?tags=%e6%80%8e%e4%b9%88%e4%b8%b0%e8%83%b8">怎么丰胸<i>(440)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e6%95%88%e6%9e%9c">丰胸效果<i>(437)</i></a>
-<a href="/search.html?tags=%e6%9c%89%e6%95%88%e4%b8%b0%e8%83%b8">有效丰胸<i>(436)</i></a>
-<a href="/search.html?tags=%e5%bf%ab%e9%80%9f%e4%b8%b0%e8%83%b8">快速丰胸<i>(414)</i></a>
-<a href="/search.html?tags=%e8%83%b8%e9%83%a8">胸部<i>(258)</i></a>
-<a href="/search.html?tags=%e4%b9%b3%e6%88%bf">乳房<i>(198)</i></a>
-<a href="/search.html?tags=%e9%9a%86%e8%83%b8">隆胸<i>(119)</i></a>
-<a href="/search.html?tags=%e6%96%b9%e6%b3%95">方法<i>(96)</i></a>
-<a href="/search.html?tags=%e5%a5%b3%e6%80%a7">女性<i>(95)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e5%93%aa%e5%ae%b6%e5%a5%bd">丰胸哪家好<i>(94)</i></a>
-<a href="/search.html?tags=%e6%95%88%e6%9e%9c">效果<i>(73)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e7%9a%84%e6%9c%80%e5%bf%ab%e6%96%b9%e6%b3%95">丰胸的最快方法<i>(58)</i></a>
-<a href="/search.html?tags=%e6%95%b4%e5%bd%a2">整形<i>(52)</i></a>
-<a href="/search.html?tags=%e8%bf%90%e5%8a%a8">运动<i>(52)</i></a>
-<a href="/search.html?tags=%e5%a5%b3%e4%ba%ba">女人<i>(50)</i></a>
-<a href="/search.html?tags=%e4%ba%a7%e5%93%81">产品<i>(48)</i></a>
-<a href="/search.html?tags=%e4%bb%80%e4%b9%88%e4%b8%b0%e8%83%b8">什么丰胸<i>(45)</i></a>
-<a href="/search.html?tags=%e5%81%a5%e5%ba%b7">健康<i>(44)</i></a>
-<a href="/search.html?tags=%e4%ba%a7%e5%90%8e">产后<i>(40)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e5%a5%bd%e4%b8%8d%e5%a5%bd">丰胸好不好<i>(40)</i></a>
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8%e4%b8%80%e8%88%ac%e5%a4%9a%e5%b0%91%e9%92%b1">丰胸一般多少钱<i>(36)</i></a>
-<a href="/search.html?tags=%e9%a3%9f%e7%89%a9">食物<i>(29)</i></a>
-<a href="/search.html?tags=%e5%b9%b3%e8%83%b8">平胸<i>(21)</i></a>
-<a href="/search.html?tags=%e6%9c%89%e6%95%88">有效<i>(19)</i></a>
-<a href="/search.html?tags=%e4%b8%8b%e5%9e%82">下垂<i>(15)</i></a>
-<a href="/search.html?tags=%e5%a6%82%e4%bd%95">如何<i>(12)</i></a>
-<a href="/search.html?tags=%e5%8f%af%e4%bb%a5">可以<i>(11)</i></a>
-<a href="/search.html?tags=%e6%9c%80%e5%bf%ab">最快<i>(11)</i></a>
-<a href="/search.html?tags=%e5%ae%89%e5%85%a8">安全<i>(9)</i></a>
-<a href="/search.html?tags=%e5%bd%b1%e5%93%8d">影响<i>(8)</i></a>
-<a href="/search.html?tags=%e5%bf%ab%e9%80%9f">快速<i>(7)</i></a>
-<a href="/search.html?tags=%e6%80%8e%e6%a0%b7">怎样<i>(6)</i></a>
-<a href="/search.html?tags=%e6%80%8e%e4%b9%88">怎么<i>(6)</i></a>
-<a href="/search.html?tags=%e5%ad%95%e6%9c%9f">孕期<i>(5)</i></a>
-<a href="/search.html?tags=%e4%b8%ba%e4%bb%80%e4%b9%88">为什么<i>(5)</i></a>
-<a href="/search.html?tags=%e6%8a%80%e5%b7%a7">技巧<i>(5)</i></a>
-<a href="/search.html?tags=%e4%bb%80%e4%b9%88">什么<i>(4)</i></a>
-<a href="/search.html?tags=%e8%83%b8%e5%b0%8f">胸小<i>(4)</i></a>
-<a href="/search.html?tags=%e4%b8%ad%e8%8d%af">中药<i>(3)</i></a>
-<a href="/search.html?tags=%e6%ad%a3%e7%a1%ae">正确<i>(3)</i></a>
-<a href="/search.html?tags=%e5%8a%9e%e6%b3%95">办法<i>(1)</i></a>
-<a href="/search.html?tags=%e5%90%83%e4%bb%80%e4%b9%88">吃什么<i>(1)</i></a>
-<a href="/search.html?tags=%e6%9c%80%e5%a5%bd">最好<i>(1)</i></a>
-<a href="/search.html?tags=%e5%85%b3%e4%ba%8e">关于<i>(1)</i></a>
-<a href="/search.html?tags=%e8%83%b8%e5%b9%b3">胸平<i>(1)</i></a>
-<a href="/search.html?tags=%e4%b8%ba%e4%bd%95">为何<i>(1)</i></a>
-<a href="/search.html?tags=%e6%9d%be%e5%bc%9b">松弛<i>(1)</i></a>
-<a href="/search.html?tags=%e7%89%a9%e7%90%86">物理<i>(0)</i></a>
-<a href="/search.html?tags=%e5%81%8f%e5%b0%8f">偏小<i>(0)</i></a>
-<a href="/search.html?tags=%e5%a4%a9%e7%84%b6">天然<i>(0)</i></a>
-<a href="/search.html?tags=%e7%bc%a9%e5%b0%8f">缩小<i>(0)</i></a>
-<a href="/search.html?tags=%e6%9c%89%e5%8a%a9%e4%ba%8e">有助于<i>(0)</i></a>
-<a href="/search.html?tags=%e5%a4%9a%e5%b0%91%e9%92%b1">多少钱<i>(0)</i></a>
-<a href="/search.html?tags=%e8%83%b8%e5%a4%96%e6%89%a9">胸外扩<i>(0)</i></a>
-<a href="/search.html?tags=%e5%a4%aa%e7%98%a6">太瘦<i>(0)</i></a>
-<a href="/search.html?tags=%e5%ba%94%e8%af%a5">应该<i>(0)</i></a>
+
 </div>
 </div>
 </div>
@@ -278,21 +208,26 @@ ${new.addtime}
 
 
 
-<li>
+
+
+
+<#list ydphlist as newone >
+<#if newone_index <= 3>
+<#if newone.imgurl!=''>
+
 <div class="img-box">
-<a title="娱乐圈c奶女神们都是怎么丰胸的？女星丰胸绝招揭秘" href="/fxzx/show20200215-38315.html">
-<img data-cfsrc="http://365jia.cn/images/imgdefault/4.png" src="http://365jia.cn/images/imgdefault/4.png">
+<a title="${newone.title}" href="/${newone.channelname}/show${newone.addtimestring}-${newone.id}.html">
+<img data-cfsrc="${newone.imgurl}" src="${newone.imgurl}">
 </a>
 </div>
 <div class="info">
-<h3><a title="娱乐圈c奶女神们都是怎么丰胸的？女星丰胸绝招揭秘" href="/fxzx/show20200215-38315.html">娱乐圈c奶女神们都是怎么丰胸的？女星丰胸绝招揭秘</a></h3>
-<p>最有用平安的丰胸方式就是食疗和推拿，但具体要怎样做呢？娱乐界的女星们个个都是c奶女神，她们都是怎样丰胸的呢？跟着美胸女神一路练就傲人上围吧。娱乐界c奶女神们都是怎样丰胸的？女星丰胸绝招揭秘林志玲边冲凉边推拿林志玲可谓是台湾闻名的模特拥有让人艳羡的好身段，…</p>
-<span>2020/2/15 12:20:09</span>
+<h3><a title="${newone.title}" href="/${newone.channelname}/show${newone.addtimestring}-${newone.id}.html">${newone.title}</a></h3>
+<p>${newone.title}…</p>
+<span>${newone.addtimestring}</span>
 </div>
-</li>
-
-
-
+</#if>
+</#if>
+</#list>
 
 
 
