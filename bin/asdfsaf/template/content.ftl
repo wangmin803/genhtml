@@ -90,7 +90,7 @@
 <span>当前位置：</span>
 <a href="/index.html">首页</a> &gt;
 <a href="/${new.channelname}.html">${new.channeltitle}</a>
-&nbsp;&gt;&nbsp;<a href="/${new.channelname}/list-${new.categoryId}-1.html">${new.categoryTitle}</a>
+&nbsp;&gt;&nbsp;<a href="/${new.channelname}/list-${new.categoryId}.html">${new.categoryTitle}</a>
 </div>
 </div>
 
