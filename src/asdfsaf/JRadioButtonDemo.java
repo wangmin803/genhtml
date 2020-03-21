@@ -2,6 +2,8 @@ package asdfsaf;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -21,11 +23,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -63,7 +65,7 @@ class MyRadio {
 	
 	private static JLabel ljlabel = new JLabel("生成路径");
 	private static JTextField jtextField6 = new JTextField("D:\\aaa");
-	
+	private static JLabel jlabel14 = new JLabel("");
 	private static JLabel emptylable = new JLabel("");
 	private static JLabel emptylable1 = new JLabel("");
 	private static JLabel emptylable2 = new JLabel("");
@@ -71,8 +73,8 @@ class MyRadio {
 	private static JLabel channelkeywordslabel =new JLabel("栏目页关键词");
 	private static JLabel channeldescriptionlabel = new JLabel("栏目页描述");
 	
-	
-
+private static JComboBox cmb=new JComboBox();    //创建JComboBox
+		private static JLabel jlabel16 = new JLabel("栏目选择");
 	private static JTextField channelkeywords = new JTextField("丰胸,隆胸,胸部,乳房,安全,办法,产后,产品,吃什么,多少钱,方法,关于,技巧,健康,可以,快速,女人,女性,偏小,平胸,如何,什么,食物,松弛,缩小,太瘦,天然,为何,为什么,物理,下垂,效果,胸平,胸外扩,胸小,影响,应该,有效,有助于,孕期,运动,怎么,怎样,正确,中药,最好,最快");
 	private static JTextField channeldescription = new JTextField("雅客_丰胸网是女性专属的丰胸秘籍，为女性量身定制丰胸的最快方法，内含丰胸产品、丰胸食谱、运动丰胸、物理丰胸、丰胸整形等专业健康丰胸方法知识，更好的回答丰胸好不好,丰胸哪家好,整形及丰胸整形医院等相关丰胸整形的问题，让女性学会如何丰胸，为你提供丰胸百科知识上的帮助，打造中国最专业的女性丰胸资讯网站。");
 	
@@ -81,9 +83,34 @@ class MyRadio {
 	public MyRadio() {
 		
 		
-
 		
-
+	      cmb.addItem("--请选择--");    //向下拉列表中添加一项
+	      cmb.addItem("新闻资讯");
+	    	cmb.addItem("购物商城");
+	    	 cmb.addItem("视频专区");
+	    						  cmb.addItem("图片分享");
+	    								  cmb.addItem("资源下载");
+	    										  cmb.addItem("公司介绍");
+	    												  cmb.addItem("娱乐");
+	    														  cmb.addItem("科技");
+	    																  cmb.addItem("游戏");
+	    																		  cmb.addItem("体育");
+	    																				  cmb.addItem("财经");
+	    																						  cmb.addItem("军事");
+	      cmb.addItem("国际");
+	      cmb.addItem("时尚");
+	      cmb.addItem("旅游");
+	      cmb.addItem("探索");
+	      cmb.addItem("育儿");
+	      cmb.addItem(" 养生");
+	      cmb.addItem("美文");
+	      cmb.addItem("历史");
+	      cmb.addItem("美食");
+	      cmb.addItem("丰胸资讯");
+	      
+	      
+		
+	    
 		
 		
 		
@@ -116,9 +143,9 @@ class MyRadio {
 		panel.add(channeldescription);
 		
 	
-	
+		panel.add(this.jlabel16);
 
-	
+		panel.add(cmb);
 
 		panel.add(this.developer1);
 		panel.add(this.emptylable2);
@@ -133,6 +160,29 @@ class MyRadio {
 		panel1.add(jtextField5);
 		
 		
+		cmb.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				if (ItemEvent.SELECTED == e.getStateChange()) {
+					System.out.println("选择的值：" + cmb.getSelectedItem());
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				}
+			}
+		});
+
 		
 	    jFrame.addWindowListener(
 			
@@ -675,11 +725,17 @@ SELECT * FROM (
 	    Connection conn = getConn();
 /*	    String sql = "select * from area1";*/
 /*	    String sql1 = "select * from area3";*/
+	
 	    
 	    String[] array = new String[] {"yule","food","history", "essay", "regimen", "baby", "discovery", "travel", "fashion", "world", "military", "finance", "sports", "game", "tech", "news"};
 	    
 	    for(String a:array) {
-	    	  String sql1 = "select a.title ,a.id,a.content,a.add_time,a.seo_title,a.seo_keywords,a.seo_description,"
+	    	 String sql1="";
+	    	   String condition =" and 1=1 ";
+	    	    if(cmb.getSelectedItem()!=""&&!cmb.getSelectedItem().equals("--请选择--")){
+	    	    	condition =" and b.title = '"+cmb.getSelectedItem()+"'" ;
+	    	    }
+	    	   sql1 = "select a.title ,a.id,a.content,a.add_time,a.seo_title,a.seo_keywords,a.seo_description,"
 	  	    		+ " a.channel_id,"
 	  	    		+ " b.name as channelname,"
 	  	    		+ " b.title as channeltitle,"
@@ -692,7 +748,9 @@ SELECT * FROM (
 	  	    		+ "where "
 	  	    		+ " a.channel_id = b.id and a.channel_id = c.channel_id and c.channel_id = b.id "
 	  	    		+ " and a.category_id = c.id"
-	  	    		+ "    order by id desc";
+	  	    	    + condition 
+	  	    		+ "  order by id desc";
+	    	   System.out.println(sql1);
 	  		Map<String,Object> root = new HashMap<String, Object>();
 	  	
 	  	    
@@ -769,7 +827,7 @@ SELECT * FROM (
 	  	        	}
 	  	           
 	  	            j++;
-	  	            text="==============id " + newnew.getId() + "生成开始=====第"+j+"条 \r\n";
+	  	            text="==============id " + newnew.getId() + " &"+newnew.getChanneltitle()+ "生成开始=====第"+j+"条 \r\n";
 	  	            System.out.println("==============id " + newnew.getId() + "生成开始====="+"\r\n");
 	  	        
 	  	 
