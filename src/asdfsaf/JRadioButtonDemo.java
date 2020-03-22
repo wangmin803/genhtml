@@ -788,11 +788,6 @@ SELECT * FROM (
 	  	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
 	  	          	}
 	  	          		
-	  	          		
-	  	          	
-	  	       
-	  	          
-	  	          	
 	  	        	root.put("new",newnew);
 	  	        
 	  	        	
@@ -805,13 +800,17 @@ SELECT * FROM (
 	  	        		//j=11以后以经准备好了前10条数据，可以用于阅读排行展示
 	  	        		
 	  	        		if(list!=null&&list.size()>0) {
-	  	        			if(list.size()>10) {
-	  	        				root.put("ydphlist", list.subList(0, 9));
-	  	        			}else {
-	  	        				root.put("ydphlist",list.subList(0, list.size()-1));
-	  	        			}
-	  	        		
+	  	        			
+	  	        			if(list.size()>10){
+								/*	list = l.subList(0, 10);*/
+	  	        				root.put("ydphlist", getRandomList(list,10));
+								
+								}else{
+									root.put("ydphlist", getRandomList(list,list.size()));
+								}
 	  	        		}
+	  	        		
+	  	        		
 	  	        		
 	  	        		genFremarker(root);
 	  	        		if(j==11) {
