@@ -120,8 +120,8 @@
 
 
 
-
-
+<#if ydphlist??>
+<#if (ydphlist?size>0) >  
 <#list ydphlist as newone >
 <#if newone_index <= 9>
 <#if newone.imgurl!=''>
@@ -134,25 +134,22 @@
 </#if>
 </#if>
 </#list>
-
-
-
-
-
-
-
-
-
-
-
-
+</#if>
+</#if>
 
 </ul>
 </div>
 <div class="sidebar-box">
 <h4>热门标签</h4>
 <div class="tags-box clearfix">
-<a href="/search.html?tags=%e4%b8%b0%e8%83%b8">丰胸<i>(1101)</i></a>
+
+<#if flags??>
+<#if (flags?size>0) >    
+<#list flags as flag >
+<a href="/search.html?tags=${flag}">${flag}</a>
+</#list>
+</#if>
+</#if>
 
 </div>
 </div>
@@ -188,10 +185,25 @@ ${new.addtime}
 </div>
 
 <div class="next-box clearfix">
-<p class="prev">上一篇：<a href="/history/show20200314-507670.html">如若戊戌变法成功，康有为人种改造计划实现！中国将是人间炼狱</a></p>
-<p class="next">下一篇：<a href="/history/show20200314-507672.html">#唤醒好春光# #我要上头条#
-【当年乾隆皇帝读书静心之园，集中华园林之精华，宛若一幅画!】建于明朝，
-乾隆时期精心打</a></p>
+
+
+
+<#if ydphlist??>
+<#if (ydphlist?size>0) >  
+<#if (ydphlist?size==1) >  
+
+<p class="prev">上一篇：<a href="/${front.channelname}/show${front.addtimestring}-${front.id}.html">${front.title}</a></p>
+<p class="next">没有了</p>
+
+<#else>
+	<p class="prev">上一篇：<a href="/${front.channelname}/show${front.addtimestring}-${front.id}.html">${front.title}</a></p>
+	<p class="next">下一篇：<a href="/${behind.channelname}/show${behind.addtimestring}-${behind.id}.html">${behind.title}</a></p>
+
+ </#if>
+
+ </#if>
+</#if>
+
 </div>
 
 
@@ -200,16 +212,6 @@ ${new.addtime}
 <span>相关资讯</span>
 </h2>
 <ul class="rel-list">
-
-
-
-
-
-
-
-
-
-
 
 <#list ydphlist as newone >
 <#if newone_index <= 3>

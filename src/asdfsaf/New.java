@@ -24,6 +24,21 @@ public class New {
 	private String categoryTitle;
 	private String addtimestring;
 	private String imgurl;
+	private String flags;
+	private String flagslist;
+	public String getFlagslist() {
+		
+		return flagslist;
+	}
+	public String getFlags() {
+		return flags;
+	}
+	public void setFlagslist(String flagslist) {
+		this.flagslist = flagslist;
+	}
+	public void setFlags(String flags) {
+		this.flags = flags;
+	}
 	public String getImgurl() {
 		return imgurl;
 	}

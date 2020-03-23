@@ -1,5 +1,6 @@
 package asdfsaf;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
@@ -20,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +42,7 @@ class MyRadio {
 	private Container container = jFrame.getContentPane();// 得到窗体容器
 	
 	
-
+	private static String zdflag="no";
 
 	private JPanel panel = new JPanel();// /定义一个面板
 	private JPanel panel1 = new JPanel();// /定义一个面板
@@ -48,81 +50,64 @@ class MyRadio {
 	private static JButton developer1 = new JButton("生成首页");
 	private static JButton developer2 = new JButton("生成栏目页");
 	
-	
-	private static JLabel sitesytitlelabel = new JLabel("网站首页标题");
-	
+	private static JLabel sitesytitlelabel = new JLabel("网站首页标题",JLabel.CENTER);
 	private static JTextField jtextField2 = new JTextField("丰胸_隆胸_女人丰胸的最快方法_如何快速有效果的丰胸_关于怎么隆胸什么可以丰胸_雅客_丰胸网");
 	
-	
-	private static JLabel sitetitlelabel = new JLabel("网站标题");
+	private static JLabel sitetitlelabel = new JLabel("网站标题",JLabel.CENTER);
 	private static JTextField jtextField4 = new JTextField("雅客_丰胸网");
-	
-	
-	
-	
 	
 	private static JTextField jtextField5 = new JTextField("结果");
 	
-	private static JLabel ljlabel = new JLabel("生成路径");
+	private static JLabel ljlabel = new JLabel("生成路径",JLabel.CENTER);
 	private static JTextField jtextField6 = new JTextField("D:\\aaa");
 	private static JLabel jlabel14 = new JLabel("");
 	private static JLabel emptylable = new JLabel("");
 	private static JLabel emptylable1 = new JLabel("");
 	private static JLabel emptylable2 = new JLabel("");
 
-	private static JLabel channelkeywordslabel =new JLabel("栏目页关键词");
-	private static JLabel channeldescriptionlabel = new JLabel("栏目页描述");
+	private static JLabel channelkeywordslabel =new JLabel("栏目页关键词",JLabel.CENTER);
+	private static JLabel channeldescriptionlabel = new JLabel("栏目页描述",JLabel.CENTER);
 	
-private static JComboBox cmb=new JComboBox();    //创建JComboBox
-		private static JLabel jlabel16 = new JLabel("栏目选择");
+	private static JComboBox<String> cmb=new JComboBox<String>();    //创建JComboBox
+	private static JLabel jlabel16 = new JLabel("栏目选择",JLabel.CENTER);
+	private static JLabel jlabel17 = new JLabel("日期:可填年月日 格式2018 201809 20180901",JLabel.CENTER);
+	private static JTextField jtextField17 = new JTextField("");
 	private static JTextField channelkeywords = new JTextField("丰胸,隆胸,胸部,乳房,安全,办法,产后,产品,吃什么,多少钱,方法,关于,技巧,健康,可以,快速,女人,女性,偏小,平胸,如何,什么,食物,松弛,缩小,太瘦,天然,为何,为什么,物理,下垂,效果,胸平,胸外扩,胸小,影响,应该,有效,有助于,孕期,运动,怎么,怎样,正确,中药,最好,最快");
 	private static JTextField channeldescription = new JTextField("雅客_丰胸网是女性专属的丰胸秘籍，为女性量身定制丰胸的最快方法，内含丰胸产品、丰胸食谱、运动丰胸、物理丰胸、丰胸整形等专业健康丰胸方法知识，更好的回答丰胸好不好,丰胸哪家好,整形及丰胸整形医院等相关丰胸整形的问题，让女性学会如何丰胸，为你提供丰胸百科知识上的帮助，打造中国最专业的女性丰胸资讯网站。");
-	
+	private static JButton developer3 = new JButton("停止生成");
 	
  
 	public MyRadio() {
 		
-		
-		
-	      cmb.addItem("--请选择--");    //向下拉列表中添加一项
+	      cmb.addItem("--请选择--");
 	      cmb.addItem("新闻资讯");
-	    	cmb.addItem("购物商城");
-	    	 cmb.addItem("视频专区");
-	    						  cmb.addItem("图片分享");
-	    								  cmb.addItem("资源下载");
-	    										  cmb.addItem("公司介绍");
-	    												  cmb.addItem("娱乐");
-	    														  cmb.addItem("科技");
-	    																  cmb.addItem("游戏");
-	    																		  cmb.addItem("体育");
-	    																				  cmb.addItem("财经");
-	    																						  cmb.addItem("军事");
+	      cmb.addItem("购物商城");
+	      cmb.addItem("视频专区");
+	      cmb.addItem("图片分享");
+	      cmb.addItem("资源下载");
+	      cmb.addItem("公司介绍");
+	      cmb.addItem("娱乐");
+	      cmb.addItem("科技");
+	      cmb.addItem("游戏");
+	      cmb.addItem("体育");
+	      cmb.addItem("财经");
+	      cmb.addItem("军事");
 	      cmb.addItem("国际");
 	      cmb.addItem("时尚");
 	      cmb.addItem("旅游");
 	      cmb.addItem("探索");
 	      cmb.addItem("育儿");
-	      cmb.addItem(" 养生");
+	      cmb.addItem("养生");
 	      cmb.addItem("美文");
 	      cmb.addItem("历史");
 	      cmb.addItem("美食");
 	      cmb.addItem("丰胸资讯");
-	      
-	      
-		
-	    
-		
-		
-		
-	
 		
 		//http://data.zz.baidu.com/update?site=https://www.jzn360.com&token=eMF5yE1vV5fBasdfeqE
-		
-		
 	
 		
 		panel.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
-		panel.setLayout(new GridLayout(9, 2));// 定义排版，一行三列
+		panel.setLayout(new GridLayout(10, 2));// 定义排版，一行三列
 		
 		
 		panel.add(sitesytitlelabel);
@@ -142,19 +127,25 @@ private static JComboBox cmb=new JComboBox();    //创建JComboBox
 		panel.add(channeldescriptionlabel);
 		panel.add(channeldescription);
 		
-	
-		panel.add(this.jlabel16);
 
-		panel.add(cmb);
 
 		panel.add(this.developer1);
 		panel.add(this.emptylable2);
 		panel.add(this.developer2);
 		panel.add(this.emptylable1);
+		
+		
+		jlabel16.setBackground(Color.WHITE);
+		jlabel16.setOpaque(true);
+		panel.add(this.jlabel16);
+		
+		panel.add(cmb);
+		
+		panel.add(jlabel17);
+		panel.add(jtextField17);
+		
 		panel.add(this.developer);
 
-		
-		
 		panel1.setBorder(BorderFactory.createTitledBorder("生成文件"));// 定义一个面板的边框显示条
 		panel1.setLayout(new GridLayout(2, 2));// 定义排版，一行三列
 		panel1.add(jtextField5);
@@ -164,29 +155,18 @@ private static JComboBox cmb=new JComboBox();    //创建JComboBox
 			public void itemStateChanged(ItemEvent e) {
 				if (ItemEvent.SELECTED == e.getStateChange()) {
 					System.out.println("选择的值：" + cmb.getSelectedItem());
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 				}
 			}
 		});
-
+		
+		developer3.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent event) {
+				zdflag = "yes";
+			}
+			
+		});
 		
 	    jFrame.addWindowListener(
-			
-		
 			new WindowAdapter() {
 		        @Override
 		        public void windowClosing(WindowEvent e)
@@ -197,10 +177,10 @@ private static JComboBox cmb=new JComboBox();    //创建JComboBox
 			}
 		);
 
-
 	    
 	    developer1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent event) {
+				zdflag = "no";
 				String url="";
 				developer1.setEnabled(false);
 				developer1.setText("正在执行");
@@ -227,6 +207,7 @@ private static JComboBox cmb=new JComboBox();    //创建JComboBox
 	    
 	    developer2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent event) {
+				zdflag = "no";
 				String url="";
 				developer2.setEnabled(false);
 				developer2.setText("正在执行");
@@ -251,10 +232,11 @@ private static JComboBox cmb=new JComboBox();    //创建JComboBox
 	    	
 	    });
 	    
-	    
+		panel.add(this.developer3);
 		developer.addMouseListener(new MouseAdapter() {
 			
 		public void mouseClicked(MouseEvent event) {
+			zdflag = "no";
 			String url="";
 			developer.setEnabled(false);
 			developer.setText("正在执行");
@@ -438,6 +420,9 @@ SELECT * FROM (
 	        System.out.println("============================");
 	        int j=1;
 	        while (rs.next()) {
+	        	
+	        	
+	        	
 	        	New newnew  = new New();
 	        	newnew.setTitle(rs.getString("title"));
 	          	newnew.setId(rs.getString("id"));
@@ -629,13 +614,6 @@ SELECT * FROM (
 	    
 	    
 		Map<String,Object> root = new HashMap<String, Object>();
-		
-		
-	
-		
-
-
-		
 	
 		Map<String,List<New>> map  = new HashMap<String,List<New>>();
 	
@@ -732,6 +710,24 @@ SELECT * FROM (
 	    for(String a:array) {
 	    	 String sql1="";
 	    	   String condition =" and 1=1 ";
+	    	   String condition2 =" and 1=1 ";
+	    	   
+	    	   
+	    	   if(jtextField17.getText()!=""&&jtextField17.getText().length()>0){
+	    		   
+	    		   if(jtextField17.getText().length()==4) {
+	    			   
+	    			   condition2 =" and format(a.update_time,'yyyy') = '"+jtextField17.getText()+"'" ;
+	    			   
+	    		   }
+	    		   else if(jtextField17.getText().length()==6) {
+	    			   condition2 =" and format(a.update_time,'yyyyMM') = '"+jtextField17.getText()+"'" ;
+	    		   }
+	    		   else if(jtextField17.getText().length()==8) {
+	    			   condition2 =" and format(a.update_time,'yyyyMMdd') = '"+jtextField17.getText()+"'" ;
+	    		   }
+	    		   
+	    	    }
 	    	    if(cmb.getSelectedItem()!=""&&!cmb.getSelectedItem().equals("--请选择--")){
 	    	    	condition =" and b.title = '"+cmb.getSelectedItem()+"'" ;
 	    	    }
@@ -743,17 +739,22 @@ SELECT * FROM (
 	  	    		+ " a.author,"
 	  	    		+ " a.category_id as category_id,"
 	  	    		+ " a.img_url as imgurl,"
+	  	     		+ " a.sub_title as sub_title,"
 	  	    		+ " c.title as category_title"
 	  	    		+ " from dt_channel_article_"+a+" a,dt_site_channel b,dt_article_category c "
 	  	    		+ "where "
 	  	    		+ " a.channel_id = b.id and a.channel_id = c.channel_id and c.channel_id = b.id "
 	  	    		+ " and a.category_id = c.id"
 	  	    	    + condition 
-	  	    		+ "  order by id desc";
+	  	  	        + condition2 
+	  	    		+ "  order by id desc ";
 	    	   System.out.println(sql1);
 	  		Map<String,Object> root = new HashMap<String, Object>();
 	  	
 	  	    
+	  
+	  		
+	  		
 	  	    PreparedStatement pstmt;
 	  	    try {
 	  	        pstmt = (PreparedStatement)conn.prepareStatement(sql1);
@@ -763,6 +764,8 @@ SELECT * FROM (
 	  	        int j=1;
 	  	        List<New> list = new ArrayList<New>();//用于阅读排行展示
 	  	        while (rs.next()) {
+	  	        	
+	  	          if(zdflag.equals("no")) {
 	  	        	New newnew  = new New();
 	  	        	newnew.setTitle(rs.getString("title"));
 	  	          	newnew.setId(rs.getString("id"));
@@ -780,13 +783,23 @@ SELECT * FROM (
 	  	          	newnew.setChannelname(rs.getString("channelname"));
 	  	          	newnew.setChanneltitle(rs.getString("channeltitle"));
 	  	         	newnew.setImgurl(rs.getString("imgurl"));
-	  	          	
-	  	          	
+	  	          	newnew.setFlags(rs.getString("sub_title"));
 	  	          	if(null!=newnew.getAddtime()&&!newnew.getAddtime().equals("")){
 	  	          		String tmp = newnew.getAddtime();
 	  	          		tmp=tmp.replace("-", "");
 	  	          	   	newnew.setAddtimestring(tmp.substring(0, 8));
 	  	          	}
+	  	          	
+	  	          	String flags = newnew.getFlags();
+	  	          	if(flags!=null&&flags.length()>0) {
+	  				if(flags.indexOf(",")>-1) {
+	  					List<String> listflags = Arrays.asList(flags.split(",")); 
+	  					root.put("flags", listflags);
+	  				}
+	  			}
+	  			
+	  	          	
+	  	          	
 	  	          		
 	  	        	root.put("new",newnew);
 	  	        
@@ -800,15 +813,33 @@ SELECT * FROM (
 	  	        		//j=11以后以经准备好了前10条数据，可以用于阅读排行展示
 	  	        		
 	  	        		if(list!=null&&list.size()>0) {
-	  	        			
+	  	        			List ltemp  =  new ArrayList();
 	  	        			if(list.size()>10){
 								/*	list = l.subList(0, 10);*/
-	  	        				root.put("ydphlist", getRandomList(list,10));
+	  	        				 ltemp =  getRandomList(list,10);
+	  	        				root.put("ydphlist", ltemp);
 								
 								}else{
-									root.put("ydphlist", getRandomList(list,list.size()));
+									 ltemp =  getRandomList(list,list.size());
+									root.put("ydphlist", ltemp);
 								}
+	  	        			
+	  	        			if(ltemp!=null&&ltemp.size()>0) {
+	  	        				if(ltemp.size()==1) {
+	  	        					
+	  	        					root.put("front", ltemp.get(0));
+	  	        					root.put("behind", "没有了");
+	  	        				}
+                                else {
+	  	        				  root.put("front", ltemp.get(0));
+	                              root.put("behind", ltemp.get(1));
+	  	        				}
+	  	        				
+	  	        			}
+	  	        			
+	  	        			
 	  	        		}
+	  	        		
 	  	        		
 	  	        		
 	  	        		
@@ -837,6 +868,7 @@ SELECT * FROM (
 	  	       	
 	  	  		
 	  	        }
+	  	          }
 	  	            System.out.println("============================");
 	  	    } catch (SQLException e) {
 	  	        e.printStackTrace();
